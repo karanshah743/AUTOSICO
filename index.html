@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style2.css" /> -->
+
+    <script src="https://kit.fontawesome.com/3ef12f2810.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="app.js"></script>
+
+    <title>AUTOSICO</title>
+  </head>
+  <body>
+    <div id="titleCard" class="card">
+        <div id="titleText" class="card-body">
+          AUTOSICO
+          <i class="fa-solid fa-hands-asl-interpreting"></i>
+        </div>
+    </div>
+    <div id="titleSubCard" class="card">
+        <div id="titleSubText" class="card-body">
+          Audio To Sign Converter
+        </div>
+    </div>
+
+    <div id="infoCard" class="row">
+      <div class="col-sm-6">
+        <div id="infoInnerCard1" class="card">
+          <div class="card-body" style="margin: 4%;">
+            <h5 class="card-title">What's the need ?</h5>
+            <p id="infoSubText" class="card-text">
+              As this world is commencing at high tech rate there are still some issues unaltered. 
+              One such problem is of telecommunicating with people having hearing disability. 
+              Video conferencing has now became a major part of this pandemic. 
+              Because of which specially abled people are facing major issues 
+              to communicate with normal people as one cannot have an interpreter 24/7.
+              <br><br>
+              To resolve this issue we have come up with a solution that ease out the difficulty
+              faced by specially abled people all over the world.
+            </p>
+            <!--<a href="#" id="getStartedBtn" class="btn btn-primary" style="border-radius: 20px;">Get started</a>!-->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="infoInnerCard2" class="card">
+          <div class="card-body" style="text-align: center;">
+            <img src="deafpeople.jpg" id="deafImage" alt="exampleImage">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="infoCard" class="row">
+      <div class="col-sm-6">
+        <div id="infoInnerCard3" class="card">
+          <div class="card-body" style="text-align: center;">
+            <img src="process3.svg" id="processImage" alt="exampleImage">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="infoInnerCard4" class="card">
+          <div class="card-body" style="margin: 4%;">
+            <h5 class="card-title" style="text-align: right;">Process...</h5>
+            <p id="infoSubText" class="card-text">
+              <b>Web Page:</b> Audio or speech will be taken as input from the user.
+              Slow and clear voice should be thier for better output.
+              <br><br>
+              <b>Code:</b> An algorithm will work in the backend to convert the collected
+              voice note of the user into appropriate sign language.
+              <br><br>
+              <b>Display:</b> The result will be in form of images and gifs with appropriate
+              visual representation of the signs after being converted from voice note.              
+            </p>
+            <a href="#titleConverter" id="getStartedBtn" class="btn btn-primary" style="border-radius: 20px;">Get started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr style="height: 5px;">
+
+    <div id="titleConverter" class="card">
+      <div id="titleConverterText" class="card-body">
+        THE CONVERTER
+      </div>
+    </div>
+
+    <div id="converterCard" class="row">
+      <div class="col-sm-6">
+        <div id="converterInnerCard1" class="card">
+          <div class="card-body" style="margin: 4%;">
+            <h5 class="card-title">Convert audio into sign language!</h5>
+            <br>
+            <label for="language">Choose a language:</label>
+            <select name="language" id="languageSelector">
+              <option value="en-IN" selected>English</option>
+              <option value="hi-IN">Hindi</option>
+              <option value="gu-IN">Gujarati</option>
+            </select>
+            <p id="converterSubText" class="card-text" style="font-size: 18px;">
+              <br>
+              Click on the below record button to record your audio.
+              <br><br>
+              <button id="microphoneBtn" onclick="runSpeechRecognition()" type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="Start Recording">
+                <i id="microphone" class="fa-solid fa-microphone"></i>
+              </button>
+              <span id="action"></span>
+              <div id="output" class="hide"></div>
+              <button id="stop" type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="Stop Recording">
+                <i id="stopBtn" class="fa-solid fa-circle-stop"></i>
+              </button>
+              <br><br>
+              <audio controls></audio>
+              <br><br><br>
+              Extracted text:
+              <br>
+              <input type="text" id="extractedText" placeholder="This is some sample text extracted from the audio.">
+              <input type="text" id="translatedText" placeholder="Text after translation.">
+              <br>
+              <button type="button" id="showDisplay" class="btn btn-dark" style="margin-right: 2%;">Show Display</button>
+              <button type="button" id="reset" class="btn btn-warning">Reset</button>
+            </p>
+            <!--<a href="#" id="getStartedBtn" class="btn btn-primary" style="border-radius: 20px;">Get started</a>!-->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="converterInnerCard2" class="card">
+          <div class="card-body" style="text-align: center;">
+            <p style="padding-top: 3%; font-size: larger; letter-spacing: 2px; font-weight: 500;">Display result</p>
+            <img src="avatar1.svg" id="displayResult" alt="exampleImage">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>About</h4>
+              <ul>
+                <li><a href="#infoInnerCard1">Introduction</a></li>
+                <li><a href="#infoInnerCard4">Process</a></li>
+                <li><a href="#titleConverter">The Converter</a></li>
+                <li><a href="#education">Education</a></li>
+              </ul>
+            </div>
+            <!-- <div class="footer-col">
+              <h4>Workplace</h4>
+              <ul>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+              </ul>
+            </div> -->
+            <div class="footer-col">
+              <h4>Contact</h4>
+              <ul>
+                <li>
+                  <a href="tel:919974913450"><i class="fas fa-phone-alt" style="margin-right: 15px"></i>+91
+                    9974913450</a>
+                </li>
+                <li>
+                  <a href="mailto:karanshah21241@gmail.com" target="_blank"><i class="fas fa-envelope"
+                      style="margin-right: 15px"></i>karanshah21241@gamil.com</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="https://github.com/karanshah743/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/karan-shah-199a8016a/" target="_blank"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/919974913450" class="whatsapp_float" target="_blank"><i
+                    class="fa fa-whatsapp whatsapp-icon" style="font-size: larger"></i></a>
+              </div>
+            </div>
+          </div>
+          <div style="
+                color: rgb(223, 223, 223);
+                text-align: center;
+                font-size: small;
+              ">
+            <p>
+              <i class="far fa-copyright"></i>
+              Copyright 2022
+              <strong style="font-weight: 900">AUTOSICO</strong> - All Rights
+              Reserved
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript">
+      /*let image = document.getElementById('displayResult');
+      let images = ['avatar1.svg','/Images/Sunrise.jpg','/Images/boat.jpg','/Images/bridge.gif','/Images/cat.gif','/Images/mango.gif']
+      var str = "Bridge";
+      var matchList = [];
+      var intervalID;
+      var lstr = str.toLowerCase();
+      var words = lstr.split(" ");
+      console.log(words);
+      
+      function startDisplay(){
+        for(let i=0;i < words.length; i++){
+          var c = "/Images/"+words[i]+".gif";
+          console.log(c);
+          for(let j=0; j < images.length; j++){
+            if(c == images[j]){
+              console.log("True")
+              matchList.push(j);
+              /*setInterval(function(){
+                image.src = images[j];
+              },5000);
+              //image.src = images[j];
+              console.log(j);  
+            }
+          }
+          if(c == images){
+            console.log("True")
+            //image.src = images[i];
+          }
+        }
+        console.log(matchList);
+        intervalID = setInterval(function(){
+          let i = 0;
+          //let random = Math.floor(Math.random() * (matchList.length + 1));
+          for(let k of matchList){
+            console.log(k);
+            image.src = images[k];
+          }
+          //image.src = images[matchList[0]];
+        },2000);
+        console.log(intervalID);
+      }
+
+      
+
+      function stop(){
+        clearInterval(intervalID);
+        image.src = images[0];
+      }
+
+      document.getElementById("showDisplay").addEventListener("click", startDisplay);
+      document.getElementById("reset").addEventListener("click", stop);*/
+    </script>
+
+    <script>
+      var audio = document.querySelector('audio');
+      var constraints = { audio: true };
+    
+      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        var mediaRecorder = new MediaRecorder(stream);
+        var chunks = [];
+    
+        mediaRecorder.addEventListener('dataavailable', function (event) {
+          chunks.push(event.data);
+        });
+    
+        mediaRecorder.addEventListener('stop', function () {
+          var blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
+          var url = URL.createObjectURL(blob);
+          audio.src = url;
+          chunks = []; // reset
+        });
+    
+        document.getElementById('microphoneBtn').addEventListener('click', function () {
+          mediaRecorder.start();
+          document.getElementById('microphone').style.backgroundColor = '#44d520';
+        });
+    
+        document.getElementById('stop').addEventListener('click', function () {
+          mediaRecorder.stop();
+          document.getElementById('microphone').style.backgroundColor = '#ff3e3e';
+          document.getElementById('stopBtn').style.backgroundColor = '#44d520';
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* JS comes here */
+      function runSpeechRecognition() {
+        var languageSelect = document.getElementById("languageSelector");
+        //console.log(languageSelect.value);
+        var userInput = "";
+        // get output div reference
+        var output = document.getElementById("extractedText");
+        // get action element reference
+        var action = document.getElementById("action");
+        // new speech recognition object
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        recognition.lang = languageSelect.value;
+
+        var translate = document.getElementById("translatedText");
+
+        //console.log(languageSelect.value);
+
+        // This shows the translated input box on following condition
+        if (languageSelect.value == "en-IN") {
+          translate.style.display = "none";
+        }
+        else {
+          translate.style.display = "initial";
+        }
+         
+        // This runs when the speech recognition service starts
+        recognition.onstart = function() {
+          action.innerHTML = "<small>listening, please speak...</small>";
+        };
+                
+        recognition.onspeechend = function() {
+          action.innerHTML = "<small>stopped listening, hope you are done...</small>";
+          recognition.stop();
+        }
+              
+        // This runs when the speech recognition service returns result
+        recognition.onresult = function(event) {
+          var transcript = event.results[0][0].transcript;
+          var confidence = event.results[0][0].confidence;
+          userInput = transcript;
+          console.log(transcript);
+          //output.innerHTML = "<b>Text:</b> " + transcript;// + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+          output.value = "" + transcript;// + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+
+          if (languageSelect.value == 'en-IN') {
+            output.onchange = function(){editEng()};
+            var edited = transcript;
+            
+            output.classList.remove("hide");  
+          }
+          
+          translate.onchange = function(){edit()};
+          var edited = transcript;
+          
+          translate.classList.remove("hide");
+
+          let image = document.getElementById('displayResult');
+          let images = ['avatar1.svg','/Images/Sunrise.jpg','/Images/boat.jpg','/Images/bridge.gif','/Images/cat.gif',
+                        '/Images/mango.gif', '/Images/hello.gif', '/Images/are you busy.gif', '/Images/address.gif',
+                        '/Images/ahmedabad.gif', '/Images/all.gif', '/Images/any questions.gif', '/Images/are you angry.gif',
+                        '/Images/are you hungry.gif', '/Images/assam.gif', '/Images/august.gif', '/Images/banana.gif', 
+                        '/Images/banaras.gif', '/Images/banglore.gif', '/Images/be careful.gif', '/Images/christmas.gif',
+                        '/Images/church.gif', '/Images/clinic.gif', '/Images/dasara.gif', '/Images/december.gif',
+                        '/Images/did you finish homework.gif', '/Images/do you have money.gif',
+                        '/Images/do you want something to drink.gif', '/Images/do you watch tv.gif', '/Images/dont worry.gif',
+                        '/Images/flower is beautiful.gif', '/Images/good afternoon.gif', '/Images/good morning.gif',
+                        '/Images/good question.gif', '/Images/grapes.gif', '/Images/hindu.gif', '/Images/hyderabad.gif',
+                        '/Images/i am a clerk.gif', '/Images/i am fine.gif', '/Images/i am sorry.gif', '/Images/i am thinking.gif',
+                        '/Images/i am tired.gif', '/Images/i go to a theatre.gif', '/Images/i had to say something but i forgot.gif',
+                        '/Images/i like pink colour.gif', '/Images/i love to shop.gif', '/Images/job.gif', '/Images/july.gif',
+                        '/Images/karnataka.gif', '/Images/kerala.gif', '/Images/krishna.gif', '/Images/lets go for lunch.gif',
+                        '/Images/may.gif', '/Images/mile.gif', '/Images/mumbai.gif', '/Images/nagpur.gif', '/Images/pakistan.gif',
+                        '/Images/nice to meet you.gif', '/Images/open the door.gif', '/Images/please call me later.gif',
+                        '/Images/please wait for sometime.gif', '/Images/police station.gif', '/Images/post office.gif',
+                        '/Images/pune.gif', '/Images/punjab.gif', '/Images/saturday.gif', '/Images/shall i help you.gif',
+                        '/Images/shall we go together tomorrow.gif', '/Images/shop.gif', '/Images/sign language interpreter.gif',
+                        '/Images/sit down.gif', '/Images/stand up.gif', '/Images/take care.gif', '/Images/temple.gif',
+                        '/Images/there was traffic jam.gif', '/Images/thursday.gif', '/Images/toilet.gif', '/Images/tomato.gif',
+                        '/Images/tuesday.gif', '/Images/usa.gif', '/Images/village.gif', '/Images/wednesday.gif',
+                        '/Images/what are you doing.gif', '/Images/what is the problem.gif', 'what is today\'s date.gif',
+                        '/Images/what is your father do.gif', '/Images/what is your mobile number.gif', '/Images/whats up.gif',
+                        '/Images/what is your name.gif', '/Images/where is the bathroom.gif', '/Images/where is the police station.gif',
+                        '/Images/you are wrong.gif']
+          var str = "are you busy";
+          var matchList = [];
+          var intervalID;
+          var lstr = transcript.toLowerCase();
+          var words = lstr;
+          //console.log(words);
+
+          let apiUrl = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languageSelect.value}|${'en-IN'}`;
+          fetch(apiUrl).then(res => res.json()).then(data => {
+              translate.value = data.responseData.translatedText;
+              data.matches.forEach(data => {
+                  if(data.id === 0) {
+                      translate.value = data.translation;
+                      //console.log(translate.value);
+                      transcript = translate.value.toLowerCase();
+                      console.log(transcript);
+                      editTrans();
+                  }
+              });
+              translatedText.setAttribute("placeholder", "Translation");
+          });
+
+          //console.log(translate.value);
+
+          function edit(){
+            transcript = translate.value;
+            console.log(transcript);
+            var lstr = transcript.toLowerCase();
+            words = lstr;
+            console.log("words in function",words);
+
+          }
+
+          transcript = output.value;
+          console.log(transcript);
+          var lstr = transcript.toLowerCase();
+          words = lstr;
+          console.log("words outside function",words);
+
+          function editTrans(){
+            transcript = translate.value;
+            console.log(transcript);
+            var lstr = transcript.toLowerCase();
+            words = lstr;
+            console.log("words outside function",words);
+          }
+
+
+          function display(){
+            var temp = "/Images/"+words+".gif";
+            console.log(temp);
+            for(let j=0; j < images.length; j++){
+              if(temp == images[j]){
+                console.log("True");
+                matchList.push(j);
+                console.log(j);
+              }
+            }
+            if(temp == images){
+              console.log("True")
+              //image.src = images[i];
+            }
+            console.log(matchList);
+            intervalID = setInterval(function(){
+              for(let k of matchList){
+                console.log(k);
+                image.src = images[k];
+              }
+            },2000);
+          }
+          
+          function startDisplay(){
+            for(let i=0;i < words.length; i++){
+              var c = "/Images/"+words[i]+".gif";
+              console.log(c);
+              for(let j=0; j < images.length; j++){
+                if(c == images[j]){
+                  console.log("True")
+                  matchList.push(j);
+                  /*setInterval(function(){
+                    image.src = images[j];
+                  },5000);*/
+                  //image.src = images[j];
+                  console.log(j);  
+                }
+              }
+              if(c == images){
+                console.log("True")
+                //image.src = images[i];
+              }
+            }
+            console.log(matchList);
+            intervalID = setInterval(function(){
+              let i = 0;
+              //let random = Math.floor(Math.random() * (matchList.length + 1));
+              for(let k of matchList){
+                console.log(k);
+                image.src = images[k];
+              }
+              //image.src = images[matchList[0]];
+            },2000);
+            console.log(intervalID);
+          }
+
+          function stop(){
+            clearInterval(intervalID);
+            image.src = images[0];
+            output.value = "This is some sample text extracted from the audio.";
+            translate.value = "Text after translation."
+            action.innerHTML = "";
+            document.getElementById("stopBtn").style.backgroundColor = "#ff3e3e";
+          }
+
+          document.getElementById("showDisplay").addEventListener("click", display);
+          document.getElementById("reset").addEventListener("click", stop);
+
+
+        };
+              
+        // start recognition
+        recognition.start();
+      }
+
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
