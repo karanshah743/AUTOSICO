@@ -349,32 +349,32 @@
           translate.classList.remove("hide");
 
           let image = document.getElementById('displayResult');
-          let images = ['avatar1.svg','/Images/Sunrise.jpg','/Images/boat.jpg','/Images/bridge.gif','/Images/cat.gif',
-                        '/Images/mango.gif', '/Images/hello.gif', '/Images/are you busy.gif', '/Images/address.gif',
-                        '/Images/ahmedabad.gif', '/Images/all.gif', '/Images/any questions.gif', '/Images/are you angry.gif',
-                        '/Images/are you hungry.gif', '/Images/assam.gif', '/Images/august.gif', '/Images/banana.gif', 
-                        '/Images/banaras.gif', '/Images/banglore.gif', '/Images/be careful.gif', '/Images/christmas.gif',
-                        '/Images/church.gif', '/Images/clinic.gif', '/Images/dasara.gif', '/Images/december.gif',
-                        '/Images/did you finish homework.gif', '/Images/do you have money.gif',
-                        '/Images/do you want something to drink.gif', '/Images/do you watch tv.gif', '/Images/dont worry.gif',
-                        '/Images/flower is beautiful.gif', '/Images/good afternoon.gif', '/Images/good morning.gif',
-                        '/Images/good question.gif', '/Images/grapes.gif', '/Images/hindu.gif', '/Images/hyderabad.gif',
-                        '/Images/i am a clerk.gif', '/Images/i am fine.gif', '/Images/i am sorry.gif', '/Images/i am thinking.gif',
-                        '/Images/i am tired.gif', '/Images/i go to a theatre.gif', '/Images/i had to say something but i forgot.gif',
-                        '/Images/i like pink colour.gif', '/Images/i love to shop.gif', '/Images/job.gif', '/Images/july.gif',
-                        '/Images/karnataka.gif', '/Images/kerala.gif', '/Images/krishna.gif', '/Images/lets go for lunch.gif',
-                        '/Images/may.gif', '/Images/mile.gif', '/Images/mumbai.gif', '/Images/nagpur.gif', '/Images/pakistan.gif',
-                        '/Images/nice to meet you.gif', '/Images/open the door.gif', '/Images/please call me later.gif',
-                        '/Images/please wait for sometime.gif', '/Images/police station.gif', '/Images/post office.gif',
-                        '/Images/pune.gif', '/Images/punjab.gif', '/Images/saturday.gif', '/Images/shall i help you.gif',
-                        '/Images/shall we go together tomorrow.gif', '/Images/shop.gif', '/Images/sign language interpreter.gif',
-                        '/Images/sit down.gif', '/Images/stand up.gif', '/Images/take care.gif', '/Images/temple.gif',
-                        '/Images/there was traffic jam.gif', '/Images/thursday.gif', '/Images/toilet.gif', '/Images/tomato.gif',
-                        '/Images/tuesday.gif', '/Images/usa.gif', '/Images/village.gif', '/Images/wednesday.gif',
-                        '/Images/what are you doing.gif', '/Images/what is the problem.gif', 'what is today\'s date.gif',
-                        '/Images/what is your father do.gif', '/Images/what is your mobile number.gif', '/Images/whats up.gif',
-                        '/Images/what is your name.gif', '/Images/where is the bathroom.gif', '/Images/where is the police station.gif',
-                        '/Images/you are wrong.gif']
+          let images = ['avatar1.svg','Images//Sunrise.jpg','Images//boat.jpg','Images//bridge.gif','Images//cat.gif',
+                        'Images//mango.gif', 'Images//hello.gif', 'Images//are you busy.gif', 'Images//address.gif',
+                        'Images//ahmedabad.gif', 'Images//all.gif', 'Images//any questions.gif', 'Images//are you angry.gif',
+                        'Images//are you hungry.gif', 'Images//assam.gif', 'Images//august.gif', 'Images//banana.gif', 
+                        'Images//banaras.gif', 'Images//banglore.gif', 'Images//be careful.gif', 'Images//christmas.gif',
+                        'Images//church.gif', 'Images//clinic.gif', 'Images//dasara.gif', 'Images//december.gif',
+                        'Images//did you finish homework.gif', 'Images//do you have money.gif',
+                        'Images//do you want something to drink.gif', 'Images//do you watch tv.gif', 'Images//dont worry.gif',
+                        'Images//flower is beautiful.gif', 'Images//good afternoon.gif', 'Images//good morning.gif',
+                        'Images//good question.gif', 'Images//grapes.gif', 'Images//hindu.gif', 'Images//hyderabad.gif',
+                        'Images//i am a clerk.gif', 'Images//i am fine.gif', 'Images//i am sorry.gif', 'Images//i am thinking.gif',
+                        'Images//i am tired.gif', 'Images//i go to a theatre.gif', 'Images//i had to say something but i forgot.gif',
+                        'Images//i like pink colour.gif', 'Images//i love to shop.gif', 'Images//job.gif', 'Images//july.gif',
+                        'Images//karnataka.gif', 'Images//kerala.gif', 'Images//krishna.gif', 'Images//lets go for lunch.gif',
+                        'Images//may.gif', 'Images//mile.gif', 'Images//mumbai.gif', 'Images//nagpur.gif', 'Images//pakistan.gif',
+                        'Images//nice to meet you.gif', 'Images//open the door.gif', 'Images//please call me later.gif',
+                        'Images//please wait for sometime.gif', 'Images//police station.gif', 'Images//post office.gif',
+                        'Images//pune.gif', 'Images//punjab.gif', 'Images//saturday.gif', 'Images//shall i help you.gif',
+                        'Images//shall we go together tomorrow.gif', 'Images//shop.gif', 'Images//sign language interpreter.gif',
+                        'Images//sit down.gif', 'Images//stand up.gif', 'Images//take care.gif', 'Images//temple.gif',
+                        'Images//there was traffic jam.gif', 'Images//thursday.gif', 'Images//toilet.gif', 'Images//tomato.gif',
+                        'Images//tuesday.gif', 'Images//usa.gif', 'Images//village.gif', 'Images//wednesday.gif',
+                        'Images//what are you doing.gif', 'Images//what is the problem.gif', 'what is today\'s date.gif',
+                        'Images//what is your father do.gif', 'Images//what is your mobile number.gif', 'Images//whats up.gif',
+                        'Images//what is your name.gif', 'Images//where is the bathroom.gif', 'Images//where is the police station.gif',
+                        'Images//you are wrong.gif']
           var str = "are you busy";
           var matchList = [];
           var intervalID;
@@ -424,7 +424,7 @@
 
 
           function display(){
-            var temp = "/Images/"+words+".gif";
+            var temp = "Images//"+words+".gif";
             console.log(temp);
             for(let j=0; j < images.length; j++){
               if(temp == images[j]){
@@ -448,7 +448,7 @@
           
           function startDisplay(){
             for(let i=0;i < words.length; i++){
-              var c = "/Images/"+words[i]+".gif";
+              var c = "Images//"+words[i]+".gif";
               console.log(c);
               for(let j=0; j < images.length; j++){
                 if(c == images[j]){
